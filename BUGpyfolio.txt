@@ -1,0 +1,24 @@
+pip install pandas pyfolio-reloaded empyrical-reloaded matplotlib sgs 
+
+biblioteca pyfolio 
+clicar no erro na linha: "File "/home/tadeu/.pyenv/versions/3.9.13/lib/python3.9/site-packages/pyfolio/timeseries.py", line 1010, in gen_drawdown_table"
+abrindo o arquivo timeseries.py
+comentar linhas 1010 a 1017
+################ COMENTAR ####################
+        df_drawdowns.loc[i, "Peak date"] = peak.to_pydatetime().strftime("%Y-%m-%d")
+        df_drawdowns.loc[i, "Valley date"] = valley.to_pydatetime().strftime("%Y-%m-%d")
+        if isinstance(recovery, float):
+            df_drawdowns.loc[i, "Recovery date"] = recovery
+        else:
+            df_drawdowns.loc[i, "Recovery date"] = recovery.to_pydatetime().strftime(
+                "%Y-%m-%d"
+            )
+
+############# ADICIONAR AS 3 LINHAS #######################################################    
+        df_drawdowns.loc[i, "Peak date"] = peak
+        df_drawdowns.loc[i, "Valley date"] = valley
+        df_drawdowns.loc[i, "Recovery date"] = recovery
+
+No arquivo plotting.py comentar linha 494
+
+    ax.set_title("Underwater plot")
