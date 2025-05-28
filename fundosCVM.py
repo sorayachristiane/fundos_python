@@ -16,7 +16,6 @@ def busca_cadastro_cvm(data=(date.today()-BDay(2))):
     url = 'cad_fi.csv'
     print("Buscando arquivo: {}".format(url))
     dados = pd.read_csv(url, sep=';', encoding='ISO-8859-1')
-    dados.info()
     return dados
 
   except: 
@@ -86,7 +85,7 @@ def melhores_e_piores(informes, cadastro, top=5, minimo_de_cotistas=100, classe=
 cadastro_fundos = busca_cadastro_cvm()
 #cadastro_fundos.info()
 
-diario_cvm  = busca_informes_diarios_cvm_por_periodo('2025-01-01', '2025-05-31')
+diario_cvm  = busca_informes_diarios_cvm_por_periodo('2025-05-01', '2025-05-31')
 #diario_cvm.info()
 
 melhores = melhores_e_piores(diario_cvm, cadastro_fundos, top=5, minimo_de_cotistas=100, classe='acoes')
